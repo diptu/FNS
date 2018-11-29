@@ -1,0 +1,72 @@
+{% include 'nav.html' %}
+
+
+
+
+
+<section  class="travel-box">
+        	<div class="container">
+        		<div class="row">
+        			<div class="col-md-12">
+        				<div class="single-travel-boxes">
+        					<div id="desc-tabs" class="desc-tabs">
+
+								<!-- Tab panes -->
+								  <div class="tab-content">
+
+									 <div role="tabpanel" class="tab-pane active fade in" id="tours">
+										<div class="tab-para">
+                                            {% if form.errors %}
+
+                                            <p>Your username and password didn't match. Please try again.</p>
+                                            {% endif %}
+
+                                            {% if next %}
+                                                {% if user.is_authenticated %}
+                                                <p>Your account doesn't have access to this page. To proceed,
+                                                please login with an account that has access.</p>
+                                                {% else %}
+                                                <p>Please login to see this page.</p>
+                                                {% endif %}
+                                            {% endif %}
+
+
+
+
+														<h2>Login</h2><br>
+
+
+
+                            <form method="post" action="{% url 'login' %}">
+                            {% csrf_token %}
+
+                                <div>  {{ form.username.label_tag }}
+                                  {{ form.username }}
+                                </div><br>
+                                <div>
+
+                                  {{ form.password.label_tag }}
+                                  {{ form.password }}
+
+                                <div><br><br>
+
+
+                            <input type="submit"  class="about-view travel-btn" value="login" />
+                            <input type="hidden" name="next" value="{{ next }}" />
+                            </form>
+
+										</div><!--/.tab-para-->
+
+									</div><!--/.tabpannel-->
+
+								</div><!--/.tab content-->
+							</div><!--/.desc-tabs-->
+        				</div><!--/.single-travel-box-->
+        			</div><!--/.col-->
+        		</div><!--/.row-->
+        	</div><!--/.container-->
+
+        </section><!--/.travel-box-->
+		<!--travel-box end-->
+
+{% include 'footer.html' %}

@@ -1,0 +1,101 @@
+{% include 'nav.html' %}
+
+{% if request.user.username ==  object.username %}
+
+		<!-- testemonial Start -->
+				<section   class="testemonial">
+					<div class="container">
+
+						<div class="gallary-header text-center">
+							<h2>
+								Biography
+							</h2>
+							<p>
+								Your personal information
+							</p>
+
+						</div><!--/.gallery-header-->
+						<div class="home1-testm item">
+
+									<div class="home1-testm-single text-center">
+										{% if object.profile_pic %}
+										<div class="home1-testm-img">
+										<img src= "{{ object.profile_pic.url }}/" width="85px" height="85px" alt={object.username}>
+										</div><!--/.home1-testm-img-->
+										{% else %}
+
+										<div class="home1-testm-img">
+										<img src="/static/assets/images/client/avetar.jpg" width="85px" height="85px" ><br> <a href="" </a>Upload a profile picture
+										</div><!--/.home1-testm-img-->
+
+										{% endif %}
+										<div class="home1-testm-txt">
+											{% if object.about_you is not none %}
+											<span class="icon section-icon">
+												<i class="fa fa-quote-left" aria-hidden="true"></i>
+											</span>
+											<p>
+												{{object.about_you}}
+											</p>
+											{% endif %}
+											<h3>
+												<a href="#">
+													{{object.username}}
+												</a>
+
+											</h3>
+											<h4>
+												Full Name : {{object.first_name}} {{object.last_name}}<br>
+												Email         : {{object.email}}</br>
+												Birth Date    : {{object.birth_date}}<br>
+												{% if object.gender == 1 %}
+												Gender    : Male<br>
+												{% elif object.gender == 2 %}
+												Gender    : Female<br>
+												{% endif %}
+
+												Religion    : {{object.religion}}<br>
+												Propession  : {{object.occuption}}<br>
+
+												Qualification  : {{object.education}}<br>
+												NID 			: {{object.NID}}</br>
+												{{object.town}}, {{object.country}}
+											</h4>
+										</div><!--/.home1-testm-txt-->
+									</div>
+
+						</div>
+
+					</div><!--/.container-->
+
+				</section><!--/.testimonial-->
+				<!-- testemonial End -->
+
+	{% else %}
+	<section  class="travel-box">
+	        	<div class="container">
+	        		<div class="row">
+	        			<div class="col-md-12">
+	        				<div class="single-travel-boxes">
+	        					<div id="desc-tabs" class="desc-tabs">
+
+									<!-- Tab panes -->
+									  <div class="tab-content">
+
+										 <div role="tabpanel" class="tab-pane active fade in" id="tours">
+											<div class="tab-para">
+	<h2>Sorry !<br><h3>You don't have the access to view this information</h3> </h2>
+	                    </div>
+	                  </div>
+	                </div>
+	              </div>
+	              </div>
+	              </div>
+	              </div>
+	              </div>
+	            </section>
+	{% endif %}
+
+
+
+{% include 'footer.html' %}

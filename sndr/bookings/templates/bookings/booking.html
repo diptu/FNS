@@ -1,0 +1,10 @@
+{% include 'nav.html' %}
+{% block content %}
+<h1>{{object.title}}</h1>
+{% endblock %}
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <!--<input type="text" value="{{object.host}}"/>-->
+    <input type="submit" value="confirm" />
+</form>
+{% include 'footer.html' %}

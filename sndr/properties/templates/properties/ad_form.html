@@ -1,0 +1,51 @@
+{% include 'nav.html' %}
+
+
+<section  class="travel-box">
+        	<div class="container">
+        		<div class="row">
+        			<div class="col-md-12">
+        				<div class="single-travel-boxes">
+        					<div id="desc-tabs" class="desc-tabs">
+
+								<!-- Tab panes -->
+								  <div class="tab-content">
+
+									 <div role="tabpanel" class="tab-pane active fade in" id="tours">
+										<div class="tab-para">
+
+
+
+														<h2>Give advertisement for your houseing</h2><br>
+
+
+
+
+
+
+                            <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+                                              <br> {{ form.as_p }}<br>
+
+                                               <br><input class="about-view travel-btn" type="submit" value="Save" />
+                                               </form>
+
+
+
+
+										</div><!--/.tab-para-->
+
+									</div><!--/.tabpannel-->
+
+								</div><!--/.tab content-->
+							</div><!--/.desc-tabs-->
+        				</div><!--/.single-travel-box-->
+        			</div><!--/.col-->
+        		</div><!--/.row-->
+        	</div><!--/.container-->
+
+        </section><!--/.travel-box-->
+		<!--travel-box end-->
+
+
+
+{% include 'footer.html' %}

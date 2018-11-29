@@ -1,0 +1,85 @@
+{% include 'nav.html' %}
+
+
+
+<!--packages start-->
+		<section id="pack" class="packages">
+			<div class="container">
+				<div class="gallary-header ">
+					<h2>
+						details
+					</h2>
+					<p>
+						Housing information
+					</p>
+				</div><!--/.gallery-header-->
+				<div class="packages-content">
+					<div class="row">
+
+						<div class="col-md-8 col-sm-6" >
+							<div class="single-package-item">
+								<img src= "{{ object.image.url }}/" alt={object.slug}>
+								<div class="single-package-item-txt">
+									<h3>{{object.title}}<span class="pull-right">BDT. amount</span></h3>
+									<!--<div class="packages-para">-->
+										<p>
+											<span>
+                        {{object.content}}
+												<!--<i class="fa fa-angle-right"></i> 3 Days 2 nights-->
+											</span>
+										<!--	<i class="fa fa-angle-right"></i>  5 star accomodation
+										</p>
+										<p>
+											<span>
+												<i class="fa fa-angle-right"></i>  transportation
+											</span>
+											<i class="fa fa-angle-right"></i> food facilities
+										 </p>
+									</div><!--/.packages-para-->
+									<div class="packages-review">
+										<p>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+										<!--	<i class="fa fa-star"></i>-->
+											<span>number of reviews</span>
+										</p>
+									</div><!--/.packages-review-->
+                  {% if request.user.pk == object.host.pk  %}
+									<div class="about-btn">
+										<button  class="about-view packages-btn"><a href="update">
+											Update</a>
+										</button>
+                      <br>  <h5>Want to cancel your ad?</h5><br>
+                    <button  class="about-view packages-btn"><a href="delete">
+
+                      Delete</a>
+
+									</div><!--/.about-btn-->
+                  <div class="about-btn">
+
+                    </button>
+
+                  </div><!--/.about-btn-->
+                  {% else %}
+                  <div class="about-btn">
+										<button  class="about-view packages-btn"><a href="/bookings/{{object.slug}}/">
+											book now
+										</button>
+
+									</div>
+                  {% endif %}
+								</div><!--/.single-package-item-txt-->
+							</div><!--/.single-package-item-->
+
+						</div><!--/.col-->
+
+				   </div><!--/.row-->
+				</div><!--/.packages-content-->
+			</div><!--/.container-->
+
+		</section><!--/.packages-->
+		<!--packages end-->
+
+{% include 'footer.html' %}
